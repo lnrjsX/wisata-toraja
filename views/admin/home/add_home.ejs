@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="homeModalLabel">Add Home Page Subtitle</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <form method="POST" action="/admin/home">
+            <div class="modal-body">
+               <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" required>
+               </div>
+               <div class="form-group">
+                  <label for="desc">Description</label>
+                  <textarea class="form-control" name="desc" rows="6" required></textarea>
+               </div>
+               <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="active" name="active">
+                  <label class="form-check-label" for="active">Active</label>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>

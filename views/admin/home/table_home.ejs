@@ -1,0 +1,57 @@
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#homeModal">
+         <i class="fas fa-fw fa fa-plus"></i> Add
+      </button>
+   </div>
+   <div class="card-body">
+      <div class="table-responsive">
+         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+               <tr>
+                  <th>No</th>
+                  <th>Title</th>
+                  <th>Desc</th>
+                  <th>Status</th>
+                  <th>Action</th>
+               </tr>
+            </thead>
+            <tbody>
+               <% homes.forEach((home, i)=> { %>
+                  <tr>
+                     <td>
+                        <%= ++i %>
+                     </td>
+                     <td>
+                        <%= home.title %>
+                     </td>
+                     <td>
+                        <%= home.desc %>
+                     </td>
+                     <td>
+                        <p class="btn <%= home.isActive ? " btn-primary" : "btn-secondary " %>
+                           badge btn-md">
+                           <% if (home.isActive) { %>
+                              active
+                              <% } else { %>
+                                 non active
+                                 <% } %>
+                        </p>
+                     </td>
+                     <td>
+                        <form method="POST" action="/admin/home/<%= home._id %>?_method=DELETE"
+                           class="d-flex flex-column">
+                           <a class="btn btn-outline-warning btn-md badge btn-edit mb-1" data-title="<%= home.title %>"
+                              data-desc="<%= home.desc %>" data-id="<%= home._id %>"
+                              data-active="<%= home.isActive %>"><i class="fa fa-edit btn-child-edit"></i> Edit</a>
+                           <button type="submit" class="btn btn-outline-danger btn-sm badge"> <i
+                                 class="fa fa-trash"></i> Delete</button>
+                        </form>
+                     </td>
+                  </tr>
+                  <% }) %>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>

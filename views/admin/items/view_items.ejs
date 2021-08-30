@@ -1,0 +1,44 @@
+<%- include('../.././partials/header.ejs') %>
+
+   <%- include('../.././partials/sidebar.ejs') %>
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+         <!-- Main Content -->
+         <div id="content">
+
+            <%- include('../.././partials/navbar.ejs') %>
+
+               <!-- Begin Page Content -->
+               <div class="container-fluid">
+                  <h1 class="h3 mb-4 text-white bg-primary p-3 rounded">ITEMS (Objek Wisata)</h1>
+
+                  <%- include('../.././partials/message.ejs') %>
+
+                     <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                              aria-controls="home" aria-selected="true">Show Items</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                              aria-controls="profile" aria-selected="false">Add Item</a>
+                        </li>
+                     </ul>
+                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           <%- include('table_items') %>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                           <%- include('add_item') %>
+
+                        </div>
+                     </div>
+
+               </div>
+
+         </div>
+         <!-- End of Main Content -->
+
+         <%- include('../.././partials/footer.ejs') %>

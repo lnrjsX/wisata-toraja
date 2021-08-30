@@ -1,0 +1,59 @@
+<%- include('../.././partials/header.ejs') %>
+
+   <%- include('../.././partials/sidebar.ejs') %>
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+         <!-- Main Content -->
+         <div id="content">
+
+            <%- include('../.././partials/navbar.ejs') %>
+
+               <!-- Begin Page Content -->
+               <div class="container-fluid">
+
+                  <h1 class="h3 mb-4 text-white bg-primary p-3 rounded">Top Home Menu</h1>
+
+                  <%- include('../.././partials/message.ejs') %>
+
+                     <%- include('table_home.ejs') %>
+
+               </div>
+
+         </div>
+         <!-- End of Main Content -->
+
+         <%- include('../.././partials/footer.ejs') %>
+            <%- include('add_home.ejs') %>
+               <%- include('edit_home.ejs') %>
+
+                  <!-- Script -->
+                  <script>
+                     const table = document.querySelector('#dataTable');
+                     table.addEventListener('click', (child) => {
+                        let btnEdit;
+
+                        if (child.target.classList.contains('btn-edit'))
+                        {
+                           btnEdit = child.target;
+                        } else if (child.target.classList.contains('btn-child-edit'))
+                        {
+                           btnEdit = child.target.parentElement;
+                        }
+                        if (btnEdit)
+                        {
+                           $('#editHomeModal').modal('show');
+                           document.querySelector('.id').value = btnEdit.getAttribute('data-id');
+                           document.querySelector('.title').value = btnEdit.getAttribute('data-title');
+                           document.querySelector('.desc').value = btnEdit.getAttribute('data-desc');
+                           if (btnEdit.getAttribute('data-active') == 'true')
+                           {
+                              document.querySelector('.isActive').setAttribute("checked", true);
+                           } else
+                           {
+                              document.querySelector('.isActive').removeAttribute("checked");
+                           }
+                        }
+                     })
+                  </script>
